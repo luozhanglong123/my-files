@@ -1,0 +1,58 @@
+pipeline: protein_monomer
+stages:
+    - align
+    - couplings
+global:
+    prefix: ./output/50_9520_output
+    sequence_id: "9520"
+    sequence_file: ./hmmer-3.4/9520.fa
+    region:
+    theta: 0.8
+    cpu: 2
+    sequence_download_url: https://www.uniprot.org/uniprotkb/S8A2J8
+tools:
+    jackhmmer: /home/xiayuanling/LZL/EVcouplings/hmmer-3.4/bin/jackhmmer
+    plmc: /home/xiayuanling/LZL/EVcouplings/plmc/bin/plmc
+    hhfilter: /home/xiayuanling/miniconda3/bin/hhfilter
+databases:
+    uniref100: ./hmmer-3.4/uniref100.fasta
+align:
+    protocol: standard
+    first_index: 1
+    use_bitscores: True
+    domain_threshold: 0.5
+    sequence_threshold: 0.5
+    iterations: 5
+    database: uniref100
+    compute_num_effective_seqs: False
+    seqid_filter:
+    minimum_sequence_coverage: 50
+    minimum_column_coverage: 70
+    extract_annotation: True
+    cpu:
+    nobias: False
+    reuse_alignment: True
+    checkpoints_hmm: False
+    checkpoints_ali: False
+couplings:
+    protocol: standard
+    iterations: 100
+    alphabet:
+    ignore_gaps: True
+    lambda_J: 0.01
+    lambda_J_times_Lq: True
+    lambda_h: 0.01
+    lambda_group:
+    scale_clusters:
+    reuse_ecs: True
+    min_sequence_distance: 6
+    scoring_model: logistic_regression
+    
+    
+    
+    
+    
+    
+    
+    
+    
