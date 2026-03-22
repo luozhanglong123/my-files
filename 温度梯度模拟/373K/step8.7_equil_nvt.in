@@ -1,0 +1,14 @@
+&cntrl
+  imin=0, irest=1, ntx=5,
+  nstlim=50000,            ! 100 ps
+  dt=0.002,
+  ntc=2, ntf=2,
+  cut=10.0,
+  ntb=1, ntp=0,
+  ntpr=1000, ntwx=1000, ntwr=50000,
+  ntt=3, gamma_ln=3.0,
+  temp0=373.0,
+  ioutfm=1, ntxo=2,
+  iwrap=1,
+  ntr=0,
+/
